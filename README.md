@@ -6,12 +6,12 @@ yum -y install python-pip
 pip install docker-compose
 ```
 
-# 后台启动并运行容器
+# 创建并启动容器
 ```
 docker-compose up -d
 ```
 
-# 关闭容器 并删除镜像
+# 关闭并删除容器
 ```
 docker-compose down
 ```
