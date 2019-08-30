@@ -1,0 +1,47 @@
+version: "3"
+services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0
+    container_name: es
+    environment:
+      - cluster.name=elasticsearch-cluster
+      - node.master=true
+      - node.name=es
+      - cluster.initial_master_nodes=es
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+      - "ES_JAVA_OPTS=-Xms128m -Xmx128m"
+      - Base_DIR=./master
+    ports:
+      - 9200:9200
+      - 9300:9300
+    deploy:
+      resources:
+        limits:
+          memory: 200M      
+    networks:
+      - esnet
+
+  es-head:
+    image: tobias74/elasticsearch-head
+    container_name: es-head
+    restart: always
+    ports:
+    - "9100:9100"
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.3.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_URL=http://es:9200    
+    ports:
+      - 5601:5601
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+    networks:
+      - esnet    
+    
+networks:
+  esnet:
