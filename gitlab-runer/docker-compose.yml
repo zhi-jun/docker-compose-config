@@ -1,0 +1,13 @@
+version: '3'
+services:
+    runner:
+      image: 'gitlab/gitlab-runner:v11.4.2'
+      container_name: gitlab-runner
+      restart: unless-stopped
+      privileged: true
+      volumes: 
+        - /git/runner/config:/etc/gitlab-runner
+        - /git/runner/docker.sock:/var/run/docker.sock
+        - /git/runner/home:/home
+      ports:
+        - '1080:80'
