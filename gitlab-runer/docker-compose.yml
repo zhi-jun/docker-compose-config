@@ -5,9 +5,9 @@ services:
       container_name: gitlab-runner
       restart: unless-stopped
       privileged: true
-      volumes: 
+      volumes:
+        - /git/runner/home:/home
         - /git/runner/config:/etc/gitlab-runner
         - /git/runner/docker.sock:/var/run/docker.sock
-        - /git/runner/home:/home
       ports:
         - '1080:80'
