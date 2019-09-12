@@ -4,11 +4,11 @@ services:
     image: docker.io/nginx
     container_name: nginx
     volumes:
-      - ./conf/nginx.conf:/etc/nginx/nginx.conf # 配置
-      - ./nginx/logs:/var/log/nginx # 日志
-      - /home/web:/home/web # web目录
-    ports: # 宿主:docker
-      - "80:80"
+      - /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf 
+      - /home/nginx/logs:/var/log/nginx 
+      - /home/web:/home/web 
+    ports: 
+      # - "80:80"
       - "9000:9000"
       - "9001:9001"
     networks:

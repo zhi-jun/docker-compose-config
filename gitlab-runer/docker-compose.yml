@@ -8,7 +8,7 @@ services:
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - /etc/docker/daemon.json:/etc/docker/daemon.json      
-        - /git/runner/config:/etc/gitlab-runner # 配置
-        - /home/web:/home/web # 生成产物
+        - /git/runner/config:/etc/gitlab-runner 
+        - /home/web:/home/web 
       ports:
         - '1080:80'
