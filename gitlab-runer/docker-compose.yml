@@ -6,8 +6,8 @@ services:
       restart: unless-stopped
       privileged: true
       volumes:
-        - /git/runner/home:/home
         - /git/runner/config:/etc/gitlab-runner
-        - /git/runner/docker.sock:/var/run/docker.sock
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /etc/docker/daemon.json:/etc/docker/daemon.json
       ports:
         - '1080:80'
