@@ -1,0 +1,10 @@
+version: '3'
+services:
+  summer.api:
+    build: .
+    image: summer.api
+    environment:
+      - TZ=Asia/Shanghai
+    container_name: summer.api
+    ports: 
+      - '5000:80'
