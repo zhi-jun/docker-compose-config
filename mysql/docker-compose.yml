@@ -1,0 +1,15 @@
+version: "3"
+services:
+  nginx:
+    image: mysql/mysql-server
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - /home/mysql/config/my.cnf:/etc/mysql/conf.d
+      - /home/mysql/data:/var/lib/mysql
+    ports: 
+      - "3306:3306"
+
+networks:
+    nginxNet:
