@@ -10,6 +10,7 @@ services:
       - /home/mysql/data:/var/lib/mysql
     ports: 
       - "3306:3306"
-
+    networks:
+      - dbNet
 networks:
-    nginxNet:
+  dbNet:
