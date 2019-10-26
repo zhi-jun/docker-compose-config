@@ -8,10 +8,5 @@ pip install docker-compose
 
 ## 创建并启动容器
 ```
-docker-compose up -d
-```
-
-## 关闭并删除容器
-```
-docker-compose down
+docker-compose up -d --build
 ```
