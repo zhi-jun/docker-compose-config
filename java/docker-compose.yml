@@ -1,0 +1,16 @@
+version: '3'
+services:
+  demo.api:
+    build: .
+    image: demo.api
+    environment:
+      - TZ=Asia/Shanghai
+    container_name: demo.api
+    volumes:
+      - /home/java/demo/logs:/app/logs
+    ports: 
+      - '7000:8080'
+    networks:
+      - apiNet
+networks:
+  apiNet:
