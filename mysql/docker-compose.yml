@@ -1,17 +1,14 @@
-version: '3'
+version: "3"
 services:
-    mysql:
-        image: "mysql:5.7"
-        container_name: mysql
-        restart: always        
-        environment:
-            MYSQL_ROOT_PASSWORD: "123456"
-        volumes:
-            - "./data:/var/lib/mysql"
-            - "./conf/my.cnf:/etc/my.cnf"
-        ports:
-            - "3306:3306"
-        networks:
-          - dbNet
-networks:
-  dbNet:
+  mysql:
+    #image: "mysql:5.7"
+    image: "hub.iflytek.com/zlyy-public/mysql:5.7"
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+    volumes:
+      - "./data:/var/lib/mysql"
+      - "./conf/my.cnf:/etc/my.cnf"
+    ports:
+      - "3306:3306"

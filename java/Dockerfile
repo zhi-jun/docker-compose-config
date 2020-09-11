@@ -1,6 +1,5 @@
-# 基础镜像
-FROM openjdk:8-jdk-alpine
-WORKDIR /app
-COPY . .
-EXPOSE 80
-ENTRYPOINT ["java","-jar", "demo-0.0.1.jar"]
+FROM hub.iflytek.com/zlyy-public/openjdk:8-jre-alpine-212
+ADD /mall-tiny-1.0.0-SNAPSHOT.jar //
+EXPOSE 8080
+ENV TZ Asia/Shanghai
+ENTRYPOINT ["java", "-jar","/mall-tiny-1.0.0-SNAPSHOT.jar"]

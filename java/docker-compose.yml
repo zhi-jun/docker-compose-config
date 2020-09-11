@@ -1,16 +1,20 @@
-version: '3'
+version: "3"
 services:
-  demo.api:
+  mall-tiny:
     build: .
-    image: demo.api
+    image: mall-tiny
     environment:
       - TZ=Asia/Shanghai
-    container_name: demo.api
+    container_name: mall-tiny
     volumes:
-      - /home/java/demo/logs:/app/logs
-    ports: 
-      - '7000:8080'
+      - /home/mall-tiny/logs:/var/logs
+    ports:
+      - "8080:8080"
     networks:
-      - apiNet
+      - mysql_default
+      - redis_default
 networks:
-  apiNet:
+  mysql_default:
+    external: true
+  redis_default:
+    external: true
