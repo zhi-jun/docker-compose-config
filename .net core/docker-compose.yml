@@ -1,17 +1,13 @@
 version: '3'
 services:
-  summer.api:
+  ncp.api.:
     build: .
-    image: summer.api
-    environment:
-      - TZ=Asia/Shanghai
-    container_name: summer.api
+    image: ncp.api
+    container_name: ncp.api
     volumes:
-      - /home/summer.api/bin/logs:/app/logs
-      - /home/summer.api/config/appsettings.json:/app/appsettings.json
+      - "./logs:/app/logs"
+      - "./appsettings.json:/app/appsettings.json"
     ports: 
-      - '5000:80'
-    networks:
-      - apiNet
-networks:
-  apiNet:
+      - 6003:5000
+    logging:
+      driver: "json-file"
